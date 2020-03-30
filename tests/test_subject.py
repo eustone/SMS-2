@@ -15,5 +15,12 @@ class Subject(object):
         if not isinstance(description,str):
            raise("Description must be words only")
         self._description = description
+        #accesing class attribute & appending it with the instance
         Subject.subject_list.append(self)
+
+    def save_subject(self):
+        with open('test.csv', 'w') as w:
+            for k in self.subject_list:
+                w.write(k._code + ',' + k._name + ',' + k._description + '\n' )
+
 
