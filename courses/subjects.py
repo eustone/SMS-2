@@ -17,13 +17,15 @@ class Subject:
 
     def get_name(self):
         return self._name
-
-    def get_email(self):
-        return self._email 
     
     def get_description(self):
         return self._description 
 
+    def new_subject(self,code,name,description=''):
+        new_subj = Subject(code,name,description)
+        self.subject_list.append(new_subj)
+        self.save_subject()
+        print('Subject has been added')
 
     def save_subject(self):
         #This array will hold the list of subjects in it.
