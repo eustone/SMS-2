@@ -6,12 +6,18 @@ class Subject:
     subject_list = []
     
     def __init__(self,code,name,description=''):
-        '''Initializes Subject code,name & 
-        description is optonal'''
-        self._code = code
-        self._name = name
+        #Init method to initialise code,name,description at instance formation
+        if not isinstance(code,str):
+            raise("Code must contain words only.")        
+        self._code        = code
+        if not isinstance(name,str):
+            raise("Name must contain words only")
+        self._name        = name
+        if not isinstance(description,str):
+           raise("Description must be words only")
         self._description = description
         Subject.subject_list.append(self)
+
     def get_code(self):
         return self._code
 
