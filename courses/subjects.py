@@ -5,7 +5,7 @@ class Subject:
     #class attribute
     subject_list = []
     
-    def __init__(self,code,name,description=''):
+    def __init__(self,code='',name='',description=''):
         #Init method to initialise code,name,description at instance formation
         if not isinstance(code,str):
             raise("Code must contain words only.")        
@@ -29,15 +29,19 @@ class Subject:
 
     def new_subject(self,code,name,description=''):
         new_subj = Subject(code,name,description)
-        self.subject_list.append(new_subj)
+        Subject.subject_list.append(new_subj)
         self.save_subject()
         print('Subject has been added')
 
     def save_subject(self):
         #This array will hold the list of subjects in it.
-        with open('subjects.csv','w') as f:
+        with open("subjects.csv",'w') as f:
             #Read in the subjects table
             for k in self.subject_list:
                 f.write(k.get_code() + ',' + k.get_name() + ',' + k.get_description() + '\n')
 
+    def check_all_subjects(self):
+        with open('subjects.csv', 'r') as r:
+            data = r.read()
+            print(data)
 

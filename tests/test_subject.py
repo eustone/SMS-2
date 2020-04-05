@@ -4,7 +4,7 @@ import sqlite3
 class Subject(object):
     """Class for subjects """
     subject_list = []
-    def __init__(self,code,name,description=''):
+    def __init__(self,code ='',name='',description=''):
         #Init method to initialise code,name,description at instance formation
         if not isinstance(code,str):
             raise("Code must contain words only.")        
@@ -23,4 +23,21 @@ class Subject(object):
             for k in self.subject_list:
                 w.write(k._code + ',' + k._name + ',' + k._description + '\n' )
 
+    def check_all_subjects(self):
+        with open('test.csv', 'r') as r:
+            data = r.read()
+            print(data)
 
+    def search_subject(self,filter):
+        self.filter = filter
+        with open('test.csv', 'r') as r:
+            data = r.read()
+            for i in data:
+                if i == self.filter:
+                    print(i)
+
+    def __repr__(self):
+       return Subject()
+
+    def __str__(self):
+        return self.filter
