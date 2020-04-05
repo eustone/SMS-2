@@ -41,7 +41,13 @@ class Subject:
                 f.write(k.get_code() + ',' + k.get_name() + ',' + k.get_description() + '\n')
 
     def check_all_subjects(self):
+        '''List all saved subjects from database'''
         with open('subjects.csv', 'r') as r:
             data = r.read()
             print(data)
+
+    def search_subject(self,filter):
+        for i in Subject.subject_list:
+            if filter in i.get_code() or filter in i.get_name():
+                print('Subject Code: {} Subject Name: {}'.format(i.get_code(),i.get_name()))
 
