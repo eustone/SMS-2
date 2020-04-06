@@ -1,7 +1,8 @@
 from subjects import Subject
 import csv,sqlite3
 
-connect = sqlite3()
+connect = sqlite3
+
 class Course:
 
     course_list = []

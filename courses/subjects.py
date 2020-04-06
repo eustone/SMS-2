@@ -1,6 +1,6 @@
-import csv,sqlite3
+import csv, sqlite3
 
-connect = sqlite3()
+connect = sqlite3
 
 class Subject:
     '''Class Subject to describe all subjects '''
